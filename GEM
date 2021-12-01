@@ -1,0 +1,34 @@
+
+% The function achieve the Generalized Equalization Model for Image
+% Enhancement
+% img: input image, which should be uint8 image.
+% mode: "RGB" or "HSV"
+% n =2 or 3 (from experiment)
+% strength: Controlling the strength of enhancement. 
+% When n=2, q is recommended as 0.2-0.35. 
+% When n=3, q is recommended as 0.4-0.7
+% WB : The choice of White Balance Method. 1: GrayWorld, WB: WB-norm, Inf:
+% MaxRGB.
+% d: the contraint of GEM, when d=0, GEM has a fast solution.
+% output: enhanced image
+% Contrast_gain: Gain= P*S^T/P_or i*S_ori^T
+% NL: the nonlinearity of transform: NL=norm(\nabla(S-S_ori))
+% Ratio: NL/Contrast_gain
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% The joint tone adjustment and contrast enhancement based on Generalized
+% Equalization Model.
+%
+% in: input image
+% q: the order of P
+% n: the norm of ||S/P^q||_n, always be 2 or inf.
+% L: the max intensity, sometimes larger than 255
+% d: the min s, always be 0, if d~=0, the user should have installed cvx
+% toolbox.
+%
+% out: output image
+% Gain: The gain of contrast: Gain=P*S^T/P_ori*S_ori^T
+% NL: the nonlinearity of transform: NL=norm(\nabla(S-S_ori))
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
